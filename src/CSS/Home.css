@@ -1,0 +1,247 @@
+.home-section {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3rem;
+  align-items: center;
+  padding: 3rem 2rem 1rem;
+  background: radial-gradient(circle at 30% 30%, rgba(0,255,200,0.08), transparent 80%);
+  color: #fff;
+}
+
+.home-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  max-width: 1250px;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+/* Photo */
+.photo-container { position: relative; flex: 0 0 380px; display: flex; justify-content: center; align-items: center; z-index: 1;}
+.photo-ring { position: absolute; width: 330px; height: 330px; border-radius: 50%; border: 2px dashed var(--accent); opacity: 0.3; }
+.photo-frame { position: relative; border-radius: 50%; overflow: hidden; width: 300px; height: 300px; box-shadow: 0 0 45px rgba(0,255,200,0.25); border: 3px solid var(--accent); z-index: 1; }
+.profile-photo { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+/* Info Section */
+.home-info { flex: 1; min-width: 360px; max-width: 700px; display: flex; flex-direction: column; justify-content: center; }
+.home-title { font-size: 3rem; font-weight: 700; line-height: 1.2; margin-bottom: 0.4rem; }
+.home-name { background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent)); -webkit-background-clip: text; color: transparent; background-size: 200%; display: inline-block; }
+.typing-effect { font-size: 1.2rem; color: rgba(255,255,255,0.85); margin-top: 0.4rem; max-width: 95%; display: inline-block; overflow: hidden; white-space: nowrap; border-right: 0.15em solid var(--accent); animation: typing 3.5s steps(40,end) forwards, blink .8s infinite; }
+
+/* Profession Tags */
+.profession-tags { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.4rem; }
+.profession-tag { border: 1px solid var(--accent); padding: 8px 16px; border-radius: 20px; font-size: 0.95rem; color: rgba(255,255,255,0.85); cursor: default; background: rgba(255,255,255,0.05); }
+
+/* Info Cards */
+.info-cards { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.2rem; }
+.info-card { background: rgba(255,255,255,0.05); border-radius: 12px; padding: 12px 18px; min-width: 180px; text-align: center; box-shadow: 0 0 10px rgba(0,255,200,0.08); }
+.info-card p { font-size: 0.9rem; color: rgba(255,255,255,0.7); margin-top: 4px; }
+
+/* Quick Links */
+.quick-links { text-align: center; margin-top: 1.2rem; }
+.quick-links h2 { font-size: 1.4rem; margin-bottom: 0.5rem; }
+.quick-links-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 22px; }
+.quick-link-img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; filter: brightness(0.9); transition: all 0.3s ease; }
+
+.quick-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centers everything horizontally */
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.quick-links-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.quick-links-list {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center; /* ensures icons are centered */
+}
+/* --------------------------
+   Background illusion layer
+   (paste at end of Home.css)
+   -------------------------- */
+
+.home-section {
+  /* ensure the background layer can sit behind your content */
+  position: relative;
+  overflow: visible;
+  z-index: 0;
+}
+
+/* container for blobs */
+.background-illusion {
+  pointer-events: none; /* doesn't block mouse or clicks */
+  position: absolute;
+  inset: 0;
+  z-index: 0; /* behind everything */
+  overflow: hidden;
+}
+
+/* each blob */
+.blob {
+  position: absolute;
+  filter: blur(60px) saturate(120%);
+  transform-origin: center;
+  mix-blend-mode: screen;
+  border-radius: 50%;
+  will-change: transform, opacity;
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+/* placements and gradients use your accent variables */
+.blob-1 {
+  width: 520px;
+  height: 520px;
+  left: -8%;
+  top: -12%;
+  background: radial-gradient(circle at 30% 30%,
+    color-mix(in srgb, var(--accent) 85%, transparent),
+    color-mix(in srgb, var(--accent) 40%, transparent) 40%,
+    transparent 80%);
+  opacity: 0.5;
+}
+
+.blob-2 {
+  width: 420px;
+  height: 420px;
+  right: -6%;
+  top: 18%;
+  background: radial-gradient(circle at 60% 40%,
+    color-mix(in srgb, var(--accent-2) 80%, transparent),
+    color-mix(in srgb, var(--accent-2) 35%, transparent) 35%,
+    transparent 80%);
+  opacity: 0.45;
+}
+
+.blob-3 {
+  width: 640px;
+  height: 640px;
+  left: 10%;
+  bottom: -22%;
+  background: radial-gradient(circle at 40% 60%,
+    color-mix(in srgb, var(--accent) 60%, var(--accent-2) 40% 70%),
+    color-mix(in srgb, var(--accent) 20%, transparent) 38%,
+    transparent 84%);
+  opacity: 0.4;
+}
+
+/* Slightly sharpen/saturate when active (cursor inside container) */
+.background-illusion.active .blob-1,
+.background-illusion.active .blob-2,
+.background-illusion.active .blob-3 {
+  filter: blur(52px) saturate(135%);
+  transition: filter 260ms ease, opacity 260ms ease;
+}
+
+/* Keep content above the blobs */
+.home-top,
+.quick-links,
+.home-info,
+.photo-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Responsive sizes */
+@media (max-width: 1024px) {
+  .blob-1 { width: 420px; height: 420px; left: -14%; top: -8%; }
+  .blob-2 { width: 340px; height: 340px; right: -10%; top: 20%; }
+  .blob-3 { width: 500px; height: 500px; left: 2%; bottom: -24%; }
+}
+
+@media (max-width: 768px) {
+  .blob-1 { width: 320px; height: 320px; left: -22%; top: -6%; }
+  .blob-2 { width: 260px; height: 260px; right: -14%; top: 22%; }
+  .blob-3 { width: 420px; height: 420px; left: -6%; bottom: -28%; }
+}
+/* FluidCursor canvas sits behind content and covers the section */
+.fluid-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  mix-blend-mode: screen; /* experiment with screen/lighten for glow */
+  will-change: transform, opacity;
+}
+
+/* ensure your main content is above canvas */
+.home-top,
+.quick-links,
+.home-info,
+.photo-container {
+  position: relative;
+  z-index: 1;
+}
+:root {
+  /* adjust these to match exact palette */
+  --accent: #06c8b4;      /* teal-ish */
+  --accent-2: #865fe0;    /* purple-ish */
+  --bg-dark: #020617;     /* deep midnight */
+  --bg-soft: rgba(2,6,23,0.7);
+}
+
+/* page background to match Toukoum-style look */
+.home-section {
+  position: relative !important; /* must be positioned for the canvas */
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3rem;
+  align-items: center;
+  padding: 3rem 2rem 1rem;
+  color: #fff;
+  /* layered radial gradients for depth */
+  background-color: var(--bg-dark);
+  background-image:
+    radial-gradient(1200px 600px at 10% 12%, rgba(6,200,180,0.05), transparent 20%),
+    radial-gradient(900px 500px at 85% 80%, rgba(134,95,224,0.05), transparent 20%),
+    linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* ensure your main content sits above the canvas */
+.home-top,
+.quick-links,
+.home-info,
+.photo-container {
+  position: relative;
+  z-index: 2;
+}
+
+/* fluid canvas styling */
+.fluid-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  mix-blend-mode: screen; /* 'screen' gives bright glow; set to 'normal' if you want no blending */
+  will-change: transform, opacity;
+  transition: opacity 300ms ease;
+}
+
+/* If you need a fallback VERY visible non-WebGL illusion */
+.simple-illusion {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
