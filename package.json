@@ -1,10 +1,10 @@
 {
-  "name": "myportfolio1",
+  "name": "my-portfolio",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "node node_modules/vite/bin/vite.js build",
+    "build": "node build",
     "preview": "vite preview"
   },
   "dependencies": {
